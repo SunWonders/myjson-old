@@ -12,11 +12,12 @@ const routes: Routes = [
   { path: 'post', component: PostComponent },
   { path: 'put', component: PutComponent },
   { path: 'delete', component: DeleteComponent },
+  { path: '', component: GetComponent },
   { path: '**', redirectTo: '/get', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -17,6 +17,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { PutComponent } from './put/put.component';
 import { GetService } from './get/get.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [GetService],
+  providers: [GetService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
