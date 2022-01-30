@@ -1,1 +1,38 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>My JSON</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button (click)="displayDescription('get')" [routerLink]="'/get'" > GET </a>
+        <a mat-button (click)="displayDescription('post')" [routerLink]="'/post'"> POST </a>
+        <a mat-button (click)="displayDescription('put')" [routerLink]="'/put'"> PUT </a>
+        <a mat-button (click)="displayDescription('delete')" [routerLink]="'/delete'"> DELETE </a>  
+      </div>
+    </mat-toolbar-row>
+  
+    <mat-toolbar-row>
+        <span style="font-size: 15px;margin-left: 30px;">{{headerData}}</span>
+      </mat-toolbar-row>
+  </mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+  
+        <a mat-button [routerLink]="'/get'"> GET </a>
+        <a mat-button > POST </a>
+        <a mat-button > PUT </a>
+        <a mat-button > DELETE </a>    
+        <!-- <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+  
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
