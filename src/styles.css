@@ -2,7 +2,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-@import "~jsoneditor/dist/jsoneditor.min.css";
 
 .ace_editor.ace-jsoneditor {
   min-height: 500px;

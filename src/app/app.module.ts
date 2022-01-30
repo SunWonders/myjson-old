@@ -15,6 +15,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { PostComponent } from './post/post.component';
 import { DeleteComponent } from './delete/delete.component';
 import { PutComponent } from './put/put.component';
+import { GetService } from './get/get.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { PutComponent } from './put/put.component';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

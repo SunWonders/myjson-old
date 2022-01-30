@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { JsonEditorOptions, JsonEditorComponent } from 'ang-jsoneditor';
+import { GetService } from './get.service';
 
 @Component({
   selector: 'app-get',
@@ -13,15 +14,40 @@ export class GetComponent implements OnInit {
   public data: any;
   @ViewChild(JsonEditorComponent, { static: false })
   editor!: JsonEditorComponent;
+  isJsonValid:boolean=false;
 
-  constructor() { 
+  constructor(private getService:GetService) { 
     this.editorOptions = new JsonEditorOptions()
     this.editorOptions.modes = ['code', 'text', 'tree', 'view']; // set all allowed modes
     this.editorOptions.mode = 'code'; //set only one mode
-    this.data = {"products":[{"name":"car","product":[{"name":"honda","model":[{"id":"civic","name":"civic"},{"id":"accord","name":"accord"},{"id":"crv","name":"crv"},{"id":"pilot","name":"pilot"},{"id":"odyssey","name":"odyssey"}]}]}]}
+    this.data = {}
+    this.editorOptions.statusBar = false;
+    this.editorOptions.onChange = () => 
+    {
+      try{
+        this.isJsonValid=this.checkJsonValid(this.editor.get());
+      }catch(e){
+
+      }
+    }
   }
 
   ngOnInit(): void {
+    
+  }
+
+  submit(){
+    console.log("submit data ",this.editor.get());
+  }
+
+  checkJsonValid(jsonData:any)
+  {
+    try {
+      JSON.parse(JSON.stringify(jsonData));
+      return true;
+    } catch (e) {
+      return false;
+    }
     
   }
 
