@@ -10,7 +10,10 @@ export class GetService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type':  'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
     })
   };
 
@@ -19,7 +22,11 @@ export class GetService {
   constructor(private httpClient: HttpClient) { }
 
   post(data: any): Observable<HttpResponse<any>> {
+    let requestData={
+      "mappingType": "GET",
+      "responseBody":data
+    }
     return this.httpClient.post<any>(this.getUploadApi, data, this.httpOptions);
   }
-  
+
 }

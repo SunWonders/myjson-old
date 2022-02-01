@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  getUploadApi:''
+  getUploadApi:'http://localhost:8080/create'
 };
 
 /*

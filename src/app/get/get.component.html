@@ -2,3 +2,7 @@
 <div class="example-button-row">
 <button mat-raised-button color="primary" style="float: right;margin-right: 20px;margin-top:20px;width: 250px;" (click)="submit()" [disabled]="!isJsonValid">Upload</button>
 </div>
+
+<div *ngIf="generatedUrl">
+    <a href="{{generatedUrl}}" target="_blank">{{generatedUrl}}</a>
+  </div>

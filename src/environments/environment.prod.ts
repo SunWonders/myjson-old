@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  getUploadApi:''
+  getUploadApi:'https://api.myjson.io/create'
 };

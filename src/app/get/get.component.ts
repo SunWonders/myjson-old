@@ -9,7 +9,7 @@ import { GetService } from './get.service';
 })
 export class GetComponent implements OnInit {
 
-  
+  public generatedUrl:any;
   public editorOptions: JsonEditorOptions;
   public data: any;
   @ViewChild(JsonEditorComponent, { static: false })
@@ -38,6 +38,13 @@ export class GetComponent implements OnInit {
 
   submit(){
     console.log("submit data ",this.editor.get());
+    this.getService.post(this.editor.get()).subscribe((data:any) => {
+      
+      this.generatedUrl=data.data.url;
+      console.log("get api response ", this.generatedUrl);
+    }, err => {
+     console.log(err)
+    });
   }
 
   checkJsonValid(jsonData:any)
