@@ -26,7 +26,7 @@ export class GetService {
       "mappingType": "GET",
       "responseBody":data
     }
-    return this.httpClient.post<any>(this.getUploadApi, data, this.httpOptions);
+    return this.httpClient.post<any>(this.getUploadApi, requestData, this.httpOptions);
   }
 
 }
