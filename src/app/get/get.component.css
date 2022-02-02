@@ -1,0 +1,13 @@
+.custom_textbox{
+    margin-top:12px !important;
+    width: 800px !important;
+    margin-left: 100px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .custom_textbox{
+        margin-top:12px !important;
+        width: 397px !important;
+        margin-left: 2px !important;
+    }
+  }

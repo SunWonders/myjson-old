@@ -51,6 +51,13 @@ div.jsoneditor-menu {
 .jsoneditor-menu a.jsoneditor-poweredBy{
   visibility: hidden !important;
 }
+
+
+@media only screen and (max-width: 600px) {
+.coming-soon {
+  left: 4vmin;
+}
+}
 /* div.jsoneditor-tree,
 div.jsoneditor textarea.jsoneditor-text {
   background-color: #666666;

@@ -16,6 +16,11 @@
       <mat-toolbar-row *ngIf="!mobileQuery.matches ? 56 : 0" >
         <span style="font-size: 15px;margin-left: 30px;">{{headerData}}</span>
       </mat-toolbar-row>
+
+      <mat-toolbar-row *ngIf="mobileQuery.matches ? 56 : 0" >
+        <span style="font-size: 11px;margin-left: 2px;">{{headerData}}</span>
+      </mat-toolbar-row>
+
     </mat-toolbar>
   
     <mat-sidenav-container 
