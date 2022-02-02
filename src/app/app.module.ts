@@ -18,6 +18,10 @@ import { PutComponent } from './put/put.component';
 import { GetService } from './get/get.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MaterialExampleModule } from 'src/material.module';
 
 @NgModule({
   declarations: [
@@ -32,13 +36,24 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   imports: [
     AppRoutingModule,
     NgJsonEditorModule,
+  
+ 
+
+  
+  
+    FormsModule,
+
+
+
+
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    HttpClientModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    MaterialExampleModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [GetService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

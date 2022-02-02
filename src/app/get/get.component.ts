@@ -15,6 +15,7 @@ export class GetComponent implements OnInit {
   @ViewChild(JsonEditorComponent, { static: false })
   editor!: JsonEditorComponent;
   isJsonValid:boolean=false;
+  public buttonText:string="Upload";
 
   constructor(private getService:GetService) { 
     this.editorOptions = new JsonEditorOptions()
@@ -27,7 +28,7 @@ export class GetComponent implements OnInit {
       try{
         this.isJsonValid=this.checkJsonValid(this.editor.get());
       }catch(e){
-
+        this.isJsonValid=false;
       }
     }
   }
@@ -38,12 +39,18 @@ export class GetComponent implements OnInit {
 
   submit(){
     console.log("submit data ",this.editor.get());
+    this.isJsonValid=false;
+    this.buttonText="Please wait...";
     this.getService.post(this.editor.get()).subscribe((data:any) => {
       
       this.generatedUrl=data.data.url;
       console.log("get api response ", this.generatedUrl);
+      this.buttonText="Upload";
+      this.isJsonValid=this.checkJsonValid(this.editor.get());
     }, err => {
-     console.log(err)
+     console.log(err);
+     this.buttonText="Upload";
+     this.isJsonValid=this.checkJsonValid(this.editor.get());
     });
   }
 
