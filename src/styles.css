@@ -63,6 +63,9 @@ div.jsoneditor-menu {
   margin-top: 20px !important;
 }
 
+.mat-sidenav{
+  top: 110px !important;
+}
 }
 
 
