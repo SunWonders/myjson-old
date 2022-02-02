@@ -53,11 +53,19 @@ div.jsoneditor-menu {
 }
 
 
+
 @media only screen and (max-width: 600px) {
 .coming-soon {
   left: 4vmin;
 }
+.ace_editor{
+
+  margin-top: 20px !important;
 }
+
+}
+
+
 /* div.jsoneditor-tree,
 div.jsoneditor textarea.jsoneditor-text {
   background-color: #666666;
