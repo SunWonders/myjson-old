@@ -7,6 +7,9 @@ body { margin: 0; font-family:  "Josefin Slab", serif; }
   min-height: 500px;
 }
 
+.headerData{
+  font-size: 15px;margin-left: 30px;color: white;
+}
 
 
   
@@ -66,7 +69,55 @@ div.jsoneditor-menu {
 .mat-sidenav{
   top: 110px !important;
 }
+
+.headerData{
+  font-size: 11px;margin-left: 2px;
+  color: white;
 }
+
+}
+
+
+ 
+
+.container {
+  display: flex;
+  background-color:#3f519d;;
+}
+
+.divOne {
+  width: 50%;
+  height: 140px;
+}
+
+.divTwo {
+  background-color: #3f519d;
+  width: 50%;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  } 
+
+  .divOne {
+    width: 100%;
+    height: auto;
+  }
+  .divTwo {
+      width: 100%;
+      height: auto;
+    }
+
+   
+
+     div.jsoneditor, div.jsoneditor-menu{
+      margin-top: 28px !important;
+    }
+}
+
+
+
 
 
 /* div.jsoneditor-tree,
