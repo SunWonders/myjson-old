@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
+  isEnabled:boolean= environment.isPostEnabled;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

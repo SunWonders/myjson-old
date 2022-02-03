@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  getUploadApi:'https://api.myjson.io/create'
+  getUploadApi:'https://api.myjson.io/create',
+  isPostEnabled: false,
+  isPutEnabled: false,
+  isDeleteEnabled:false
 };
 
 /*
