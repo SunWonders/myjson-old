@@ -7,7 +7,8 @@ export const environment = {
   getUploadApi:'https://api.myjson.io/create',
   isPostEnabled: true,
   isPutEnabled: false,
-  isDeleteEnabled:false
+  isDeleteEnabled:false,
+  isHomeEnabled:true
 };
 
 /*

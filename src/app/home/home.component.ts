@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
+import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +8,10 @@ import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
 })
 export class HomeComponent implements OnInit {
 
-
- 
-//  public editorOptions: JsonEditorOptions;
-//   public data: any;
-//   @ViewChild(JsonEditorComponent, { static: false })
-//   editor!: JsonEditorComponent;
+  isEnabled:boolean= environment.isPutEnabled;
 
   constructor() { 
-    // this.editorOptions = new JsonEditorOptions()
-    // this.editorOptions.modes = ['code', 'text', 'tree', 'view']; // set all allowed modes
-    // this.editorOptions.mode = 'code'; //set only one mode
-      
-    //   this.data = {"products":[{"name":"car","product":[{"name":"honda","model":[{"id":"civic","name":"civic"},{"id":"accord","name":"accord"},{"id":"crv","name":"crv"},{"id":"pilot","name":"pilot"},{"id":"odyssey","name":"odyssey"}]}]}]}
+  
   }
 
   ngOnInit(): void {

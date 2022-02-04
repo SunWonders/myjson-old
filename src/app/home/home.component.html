@@ -9,5 +9,11 @@
     <pre >ng build</pre>
 </div> -->
 
-<!-- <json-editor  [options]="editorOptions" [data]="data"></json-editor> -->
+
+  <h1 *ngIf="!isEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1>
+
+<div *ngIf="isEnabled">
+  Home Screen
+</div>
+
 
