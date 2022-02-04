@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/SunWonders/myjson/develop/src/assets/images/logo-black.png?token=GHSAT0AAAAAABM3XJEOICJI3DVPMPVVZQBUYP5I3UA">
+    <img src="/src/assets/images/logo-black.png?token=GHSAT0AAAAAABM3XJEOICJI3DVPMPVVZQBUYP5I3UA">
 </div>
 
 # 👀 What is MyJson?
