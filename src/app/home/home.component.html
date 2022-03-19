@@ -10,13 +10,13 @@
 </div> -->
 
 
-  <!-- <h1 *ngIf="!isEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1> -->
+  <h1 *ngIf="!isHomeEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1> 
 
 <!-- <div *ngIf="!isEnabled">
   Home Screen
 </div> -->
 
-<div class="center">
+<div class="center" *ngIf="isHomeEnabled">
   <div class="content">
     <!-- <img class="custom_img" src="../../assets/images/mini-logo-black.png"/> -->
 
