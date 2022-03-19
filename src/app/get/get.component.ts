@@ -43,7 +43,7 @@ export class GetComponent implements OnInit {
     this.buttonText="Please wait...";
     this.getService.post(this.editor.get()).subscribe((data:any) => {
       
-      this.generatedUrl=data.data.url;
+      this.generatedUrl=data.generatedUrl;
       console.log("get api response ", this.generatedUrl);
       this.buttonText="Upload";
       this.isJsonValid=this.checkJsonValid(this.editor.get());

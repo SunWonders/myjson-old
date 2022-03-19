@@ -1,3 +1,47 @@
 p {
     font-family: Lato;
   }
+
+  .center {
+    display: flex;
+    /* background-color: #ff1124; */
+    justify-content: center;
+    height: 60vh;
+  }
+  
+  
+  .center div{
+    align-self: center;
+  }
+
+  .material-icons.color_green { color: #4051b5; }
+  
+
+
+
+.custom_img{
+  padding: 39px;
+    display: block;
+    margin-left: 428px;
+    margin-right: auto;
+    height: 52px;
+}
+
+@media screen and (max-width: 700px) {
+  .custom_textbox {
+    margin-top: 12px !important;
+    width: 357px !important;
+    margin-left: 2px !important;
+}
+
+.custom_img{
+  margin-top: -125px;
+}
+}
+
+.custom_search_header{
+  font-family: 'Josefin Slab', serif !important;
+  margin-left: 410px;
+  /* height: 34px; */
+  font-size: 40px;
+}

@@ -10,10 +10,28 @@
 </div> -->
 
 
-  <h1 *ngIf="!isEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1>
+  <!-- <h1 *ngIf="!isEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1> -->
 
-<div *ngIf="isEnabled">
+<!-- <div *ngIf="!isEnabled">
   Home Screen
+</div> -->
+
+<div class="center">
+  <div class="content">
+    <!-- <img class="custom_img" src="../../assets/images/mini-logo-black.png"/> -->
+
+    <h1 class="custom_search_header"> {{  "{ Search \}"   }} </h1>
+
+
+    <p>
+      
+
+               <!-- { Search Your URL } -->
+    <mat-form-field appearance="outline" class="custom_textbox example-full-width ">
+      <mat-label>Search By Generated URL or ID</mat-label>
+      <input matInput placeholder="Please Enter URL" >
+      <mat-icon class="material-icons color_green" matSuffix>search</mat-icon>
+    </mat-form-field>
+
+  </p></div>
 </div>
-
-
