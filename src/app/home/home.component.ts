@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-  isEnabled:boolean= environment.isPutEnabled;
+  isEnabled:boolean= environment.isHomeEnabled;
 
   constructor() { 
   
