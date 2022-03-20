@@ -29,9 +29,11 @@
                <!-- { Search Your URL } -->
     <mat-form-field appearance="outline" class="custom_textbox example-full-width ">
       <mat-label>Search By Generated URL or ID</mat-label>
-      <input matInput placeholder="Please Enter URL" >
-      <mat-icon class="material-icons color_green" matSuffix>search</mat-icon>
+      <input matInput placeholder="Please Enter URL" [(ngModel)]='searchData' >
+      <button (click)="search()"  matSuffix  mat-raised-button color="primary" style="margin-right: -9px;"><mat-icon class="custom_button">search</mat-icon></button>
     </mat-form-field>
+
+   
 
   </p></div>
 </div>

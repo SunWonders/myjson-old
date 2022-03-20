@@ -21,12 +21,24 @@ export class GetService {
 
   constructor(private httpClient: HttpClient) { }
 
-  post(data: any): Observable<HttpResponse<any>> {
-    let requestData={
-      "mappingType": "GET",
-      "responseBody":data
+  post(data: any,id:any): Observable<HttpResponse<any>> {
+   
+    if(id!=undefined&&id!='')
+    {
+     let requestData={
+        "mappingType": "GET",
+        "responseBody":data,
+        "id":id
+      }
+      return this.httpClient.post<any>(this.getUploadApi, requestData, this.httpOptions);
+    }else{
+      let requestData={
+        "mappingType": "GET",
+        "responseBody":data
+      }  
+      return this.httpClient.post<any>(this.getUploadApi, requestData, this.httpOptions);
     }
-    return this.httpClient.post<any>(this.getUploadApi, requestData, this.httpOptions);
+    
   }
 
 }

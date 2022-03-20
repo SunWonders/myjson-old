@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { JsonEditorOptions, JsonEditorComponent } from 'ang-jsoneditor';
 import { GetService } from './get.service';
-
+import { ActivatedRoute, Params } from '@angular/router';
+import { HomeService } from '../home/home.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-get',
   templateUrl: './get.component.html',
@@ -16,8 +18,9 @@ export class GetComponent implements OnInit {
   editor!: JsonEditorComponent;
   isJsonValid:boolean=false;
   public buttonText:string="Upload";
+  id: string="";
 
-  constructor(private getService:GetService) { 
+  constructor(private getService:GetService,private route: ActivatedRoute,private homeService:HomeService) { 
     this.editorOptions = new JsonEditorOptions()
     this.editorOptions.modes = ['code', 'text', 'tree', 'view']; // set all allowed modes
     this.editorOptions.mode = 'code'; //set only one mode
@@ -34,14 +37,23 @@ export class GetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.route.params.subscribe((params: Params) => 
+    {
+      if(params['id']!=undefined)
+      {
+        console.log(params['id']);
+        this.id=params['id'];
+        this.search(this.id)
+      }
+      
+    });
   }
 
   submit(){
     console.log("submit data ",this.editor.get());
     this.isJsonValid=false;
     this.buttonText="Please wait...";
-    this.getService.post(this.editor.get()).subscribe((data:any) => {
+    this.getService.post(this.editor.get(),this.id).subscribe((data:any) => {
       
       this.generatedUrl=data.generatedUrl;
       console.log("get api response ", this.generatedUrl);
@@ -63,6 +75,20 @@ export class GetComponent implements OnInit {
       return false;
     }
     
+  }
+
+
+  search(searchData:any){
+
+    this.homeService.post(searchData).subscribe((data:any) => {
+      console.log("search api response ", data);
+      this.data=data.responseBody;
+      this.generatedUrl=environment.baseUrl+searchData;
+    }, err => {
+     console.log(err);
+    
+    });
+
   }
 
   

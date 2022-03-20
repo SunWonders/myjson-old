@@ -31,11 +31,15 @@ p {
   .custom_textbox {
     margin-top: 12px !important;
     width: 357px !important;
-    margin-left: 2px !important;
+    margin-left: 19px !important;
 }
 
 .custom_img{
   margin-top: -125px;
+}
+
+.custom_search_header{
+  margin-left: 120px !important;
 }
 }
 
@@ -44,4 +48,11 @@ p {
   margin-left: 410px;
   /* height: 34px; */
   font-size: 40px;
+}
+
+.custom_button{
+  margin-bottom: 10px !important;
+    margin-top: 15px !important;
+    margin-left: 5px !important;
+    margin-right: 3px !important;
 }

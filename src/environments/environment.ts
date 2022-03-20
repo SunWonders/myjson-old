@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   getUploadApi:'https://api.myjson.io/v2/create',
+  searchApi:'https://api.myjson.io/search',
+  baseUrl:'https://api.myjson.io/',
   isPostEnabled: true,
   isPutEnabled: false,
   isDeleteEnabled:false,

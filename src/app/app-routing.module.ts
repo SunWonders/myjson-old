@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'put', component: PutComponent },
   { path: 'delete', component: DeleteComponent },
   { path: '', component: GetComponent },
+  {path: 'get/:id', component: GetComponent },
   { path: '**', redirectTo: '/get', pathMatch: 'full' }
 ];
 
