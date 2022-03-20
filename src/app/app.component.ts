@@ -20,6 +20,10 @@ export class AppComponent implements OnInit,OnDestroy{
   }
 
   displayDescription(type:string) {
+    if(type.toString().includes("get"))
+    {
+      type="get";
+    }
     switch(type){
       case "get":{
         this.headerData="Upload Your JSON and Make a GET API URI Ready within seconds";
