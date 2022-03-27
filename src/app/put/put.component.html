@@ -1,2 +1,40 @@
 
-<h1 *ngIf="!isEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1>
+    <div *ngIf="isEnabled" >
+        <h1 *ngIf="!isEnabled" class="coming-soon-h1 coming-soon">Coming Soon</h1>
+    
+        <div class="container">
+            <div class="divOne" >
+                <span class="headerData">Request</span>
+                <json-editor [options]="requestEditorOptions" [data]="requestData" #requestEditor></json-editor>
+            </div>
+            <div class="divTwo">
+                <span class="headerData">Response</span>
+                <json-editor [options]="responseEditorOptions" [data]="responseData" #responseEditor></json-editor> 
+            </div>
+          </div>
+    
+     
+            
+      
+    
+           
+    
+    
+    
+       
+        
+        <div class="example-button-row">
+            
+            <button mat-raised-button color="primary" style="float: right;margin-right: 20px;margin-top:20px;width: 250px;" (click)="submit()" [disabled]="!isJsonValid">{{buttonText}}</button>
+            <mat-form-field *ngIf="generatedUrl"  class="custom_textbox example-full-width " appearance="fill" >
+                <mat-label >Generated URL</mat-label>
+                <input matInput readonly  [(ngModel)]="generatedUrl">
+                <button  matSuffix mat-icon-button aria-label="Clear" >
+                    <mat-icon [cdkCopyToClipboard]="generatedUrl">content_cut</mat-icon>
+                  </button>
+              </mat-form-field>
+        </div>
+    
+    
+    
+    </div>

@@ -37,6 +37,9 @@ export class HomeComponent implements OnInit {
       }else  if(data.mappingType=="POST")
       {
          this.route.navigate(["/post",data.id]);
+      }else  if(data.mappingType=="PUT")
+      {
+         this.route.navigate(["/put",data.id]);
       }
     }
     
