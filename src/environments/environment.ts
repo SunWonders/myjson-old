@@ -7,11 +7,12 @@ export const environment = {
   getUploadApi:'https://api.myjson.io/v2/create',
   postUploadApi:'https://api.myjson.io/v2/create',
   putUploadApi:'https://api.myjson.io/v2/create',
+  deleteUploadApi:'https://api.myjson.io/v2/create',
   searchApi:'http://localhost:8080/search',
   baseUrl:'https://api.myjson.io/',
   isPostEnabled: true,
   isPutEnabled: true,
-  isDeleteEnabled:false,
+  isDeleteEnabled:true,
   isHomeEnabled:true
 };
 

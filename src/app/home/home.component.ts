@@ -40,6 +40,9 @@ export class HomeComponent implements OnInit {
       }else  if(data.mappingType=="PUT")
       {
          this.route.navigate(["/put",data.id]);
+      }else  if(data.mappingType=="DELETE")
+      {
+         this.route.navigate(["/delete",data.id]);
       }
     }
     

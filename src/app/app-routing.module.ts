@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'get/:id', component: GetComponent },
   {path: 'post/:id', component: PostComponent },
   {path: 'put/:id', component: PutComponent },
+  {path: 'delete/:id', component: PutComponent },
   { path: '**', redirectTo: '/get', pathMatch: 'full' }
 ];
 

@@ -5,8 +5,9 @@ export const environment = {
   baseUrl:'https://api.myjson.io/',
   postUploadApi:'https://api.myjson.io/v2/create',
   putUploadApi:'https://api.myjson.io/v2/create',
+  deleteUploadApi:'https://api.myjson.io/v2/create',
   isPostEnabled: true,
   isPutEnabled: true,
-  isDeleteEnabled:false,
+  isDeleteEnabled:true,
   isHomeEnabled:true
 };
