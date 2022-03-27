@@ -16,10 +16,16 @@ export class AppComponent implements OnInit,OnDestroy{
   // }
 
  ngOnInit(): void {
+   let tempHeader=localStorage.getItem("headerData");
+   if(tempHeader!=null)
+   {
+     this.headerData=tempHeader.toString();
+   }
     
   }
 
   displayDescription(type:string) {
+    console.log("type",type)
     if(type.toString().includes("get"))
     {
       type="get";
@@ -41,11 +47,16 @@ export class AppComponent implements OnInit,OnDestroy{
         this.headerData="Upload Your JSON and Make a PUT API URI Ready within seconds";
         break;
       }
+      case "home":{
+        this.headerData="Search your API by Generated URI or ID";
+        break;
+      }
       default:{
         this.headerData="Coming Soon";
         break;
       }
     }
+    localStorage.setItem("headerData",this.headerData.toString());
   }
 
 

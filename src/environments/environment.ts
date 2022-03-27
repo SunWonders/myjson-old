@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   getUploadApi:'https://api.myjson.io/v2/create',
-  searchApi:'https://api.myjson.io/search',
+  postUploadApi:'https://api.myjson.io/v2/create',
+  searchApi:'http://localhost:8080/search',
   baseUrl:'https://api.myjson.io/',
   isPostEnabled: true,
   isPutEnabled: false,

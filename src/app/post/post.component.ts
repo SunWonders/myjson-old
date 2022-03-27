@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { JsonEditorOptions, JsonEditorComponent } from 'ang-jsoneditor';
 import { environment } from 'src/environments/environment';
-import { GetService } from '../get/get.service';
+import { HomeService } from '../home/home.service';
+import { PostService } from './post.service';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -23,8 +25,9 @@ export class PostComponent implements OnInit {
 
   isJsonValid:boolean=false;
   public buttonText:string="Upload";
+  id: string="";
 
-  constructor(private getService:GetService) { 
+  constructor(private postService:PostService,private route: ActivatedRoute,private homeService:HomeService) { 
 
    this.requestEditorBuildOptions();
    this.responseEditorBuildOptions();
@@ -32,7 +35,16 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.route.params.subscribe((params: Params) => 
+    {
+      if(params['id']!=undefined)
+      {
+        console.log(params['id']);
+        this.id=params['id'];
+        this.search(this.id)
+      }
+      
+    });
   }
 
   requestEditorBuildOptions(){
@@ -70,6 +82,20 @@ export class PostComponent implements OnInit {
   submit(){
     console.log("request data ",this.requestEditor.get());
     console.log("response data ",this.responseEditor.get());
+
+    this.isJsonValid=false;
+    this.buttonText="Please wait...";
+    this.postService.post(this.requestEditor.get(),this.responseEditor.get(),this.id).subscribe((data:any) => {
+      
+      this.generatedUrl=data.generatedUrl;
+      console.log("get api response ", this.generatedUrl);
+      this.buttonText="Upload";
+     
+    }, err => {
+     console.log(err);
+     this.buttonText="Upload";
+    });
+
     //this.isJsonValid=false;
     //this.buttonText="Please wait...";
 
@@ -84,6 +110,20 @@ export class PostComponent implements OnInit {
       return false;
     }
     
+  }
+
+  search(searchData:any){
+
+    this.homeService.post(searchData).subscribe((data:any) => {
+      console.log("search api response ", data);
+      this.responseData=data.responseBody;
+      this.requestData=data.requestBody;
+      this.generatedUrl=environment.baseUrl+searchData;
+    }, err => {
+     console.log(err);
+    
+    });
+
   }
 
 

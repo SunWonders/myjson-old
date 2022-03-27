@@ -27,7 +27,18 @@ export class HomeComponent implements OnInit {
     this.homeService.post(this.searchData).subscribe((data:any) => {
     
       console.log("search api response ", data);
-      this.route.navigate(["/get",data.id]);
+      if(data=="Invalid Request / No Data found")
+      {
+        this.openSnackBar("Invalid Request / No Data found ","OK");
+      }else{
+      if(data.mappingType=="GET")
+      {
+           this.route.navigate(["/get",data.id]);
+      }else  if(data.mappingType=="POST")
+      {
+         this.route.navigate(["/post",data.id]);
+      }
+    }
     
     }, err => {
      console.log(err);
