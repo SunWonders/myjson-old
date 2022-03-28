@@ -25,7 +25,7 @@ export class AppComponent implements OnInit,OnDestroy{
   }
 
   displayDescription(type:string) {
-    console.log("type",type)
+    //console.log("type",type)
     if(type.toString().includes("get"))
     {
       type="get";
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit,OnDestroy{
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    console.log("is mobile"+ this.mobileQuery)
+    //console.log("is mobile"+ this.mobileQuery)
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.headerData="Upload Your JSON and Make a GET API URI Ready within seconds";

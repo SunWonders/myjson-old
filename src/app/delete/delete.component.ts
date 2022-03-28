@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params } from '@angular/router';
 import { JsonEditorOptions, JsonEditorComponent } from 'ang-jsoneditor';
 import { environment } from 'src/environments/environment';
@@ -29,7 +30,7 @@ export class DeleteComponent implements OnInit {
   public buttonText:string="Upload";
   id: string="";
 
-  constructor(private deleteService:DeleteService,private route: ActivatedRoute,private homeService:HomeService) { 
+  constructor(private deleteService:DeleteService,private route: ActivatedRoute,private homeService:HomeService,private _snackBar: MatSnackBar) { 
 
    this.requestEditorBuildOptions();
    this.responseEditorBuildOptions();
@@ -41,7 +42,7 @@ export class DeleteComponent implements OnInit {
     {
       if(params['id']!=undefined)
       {
-        console.log(params['id']);
+        //console.log(params['id']);
         this.id=params['id'];
         this.search(this.id)
       }
@@ -57,7 +58,7 @@ export class DeleteComponent implements OnInit {
     this.requestEditorOptions.onChange = () => 
     {
       try{
-        console.log("request editor ",this.requestEditor.get());
+        //console.log("request editor ",this.requestEditor.get());
         this.isJsonValid=this.checkJsonValid(this.requestEditor.get());
       }catch(e){
         this.isJsonValid=false;
@@ -73,7 +74,7 @@ export class DeleteComponent implements OnInit {
     this.responseEditorOptions.onChange = () => 
     {
       try{
-        console.log("response editor ",this.responseEditor.get());
+        //console.log("response editor ",this.responseEditor.get());
         this.isJsonValid=this.checkJsonValid(this.responseEditor.get());
       }catch(e){
         this.isJsonValid=false;
@@ -82,19 +83,21 @@ export class DeleteComponent implements OnInit {
   }
 
   submit(){
-    console.log("request data ",this.requestEditor.get());
-    console.log("response data ",this.responseEditor.get());
+    //console.log("request data ",this.requestEditor.get());
+    //console.log("response data ",this.responseEditor.get());
 
     this.isJsonValid=false;
     this.buttonText="Please wait...";
     this.deleteService.post(this.requestEditor.get(),this.responseEditor.get(),this.id).subscribe((data:any) => {
       
       this.generatedUrl=data.generatedUrl;
-      console.log("get api response ", this.generatedUrl);
+      //console.log("get api response ", this.generatedUrl);
       this.buttonText="Upload";
     
     }, err => {
-     console.log(err);
+    // //console.log(err);
+    this.openSnackBar("Oops Some Error Occured !! Please try again ","OK");
+
      this.buttonText="Upload";
     });
 
@@ -117,14 +120,20 @@ export class DeleteComponent implements OnInit {
   search(searchData:any){
 
     this.homeService.post(searchData).subscribe((data:any) => {
-      console.log("search api response ", data);
+      //console.log("search api response ", data);
       this.responseData=data.responseBody;
       this.requestData=data.requestBody;
       this.generatedUrl=environment.baseUrl+searchData;
     }, err => {
-     console.log(err);
-    
+    // //console.log(err);
+    this.openSnackBar("Oops Some Error Occured !! Please try again ","OK");
+
     });
 
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
 }

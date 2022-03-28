@@ -23,10 +23,10 @@ export class HomeComponent implements OnInit {
   }
 
   search(){
-    console.log("search data ",this.searchData);
+    //console.log("search data ",this.searchData);
     this.homeService.post(this.searchData).subscribe((data:any) => {
     
-      console.log("search api response ", data);
+      //console.log("search api response ", data);
       if(data=="Invalid Request / No Data found")
       {
         this.openSnackBar("Invalid Request / No Data found ","OK");
@@ -47,8 +47,8 @@ export class HomeComponent implements OnInit {
     }
     
     }, err => {
-     console.log(err);
-     this.openSnackBar("No Data Found ","OK");
+     //console.log(err);
+     this.openSnackBar("No Data Found ! Please try again ","OK");
     
     });
 
